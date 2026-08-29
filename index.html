@@ -1,20 +1,656 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Krishna - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<meta http-equiv="refresh" content="0; url=https://bkrsna.dev">
-</head>
-<body>
-  <div class="container">
+  <meta name="description" content="Full Stack & GenAI Engineer"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"/>
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Krishna - Portfolio"/>
+  <meta property="og:description" content="Full Stack & GenAI Engineer"/>
+  <meta property="og:url" content="https://bkrsna.github.io"/>
+  <meta property="og:site_name" content="Krishna"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:type" content="website"/>
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Krishna - Portfolio"/>
+  <meta name="twitter:description" content="Full Stack & GenAI Engineer"/>
+  
+  <link rel="icon" href="./avatar.png" type="image/png"/>
 
-    <div class="name-container">
-      <h1>Hi, I'm Krishna 👋</h1>
-      <span>@bkrsna</span>
-    </div>
+  <!-- Google Fonts Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            background: 'hsl(var(--background) / <alpha-value>)',
+            foreground: 'hsl(var(--foreground) / <alpha-value>)',
+            card: {
+              DEFAULT: 'hsl(var(--card) / <alpha-value>)',
+              foreground: 'hsl(var(--card-foreground) / <alpha-value>)',
+            },
+            popover: {
+              DEFAULT: 'hsl(var(--popover) / <alpha-value>)',
+              foreground: 'hsl(var(--popover-foreground) / <alpha-value>)',
+            },
+            primary: {
+              DEFAULT: 'hsl(var(--primary) / <alpha-value>)',
+              foreground: 'hsl(var(--primary-foreground) / <alpha-value>)',
+            },
+            secondary: {
+              DEFAULT: 'hsl(var(--secondary) / <alpha-value>)',
+              foreground: 'hsl(var(--secondary-foreground) / <alpha-value>)',
+            },
+            muted: {
+              DEFAULT: 'hsl(var(--muted) / <alpha-value>)',
+              foreground: 'hsl(var(--muted-foreground) / <alpha-value>)',
+              background: 'hsl(var(--muted) / <alpha-value>)',
+            },
+            accent: {
+              DEFAULT: 'hsl(var(--accent) / <alpha-value>)',
+              foreground: 'hsl(var(--accent-foreground) / <alpha-value>)',
+            },
+            destructive: {
+              DEFAULT: 'hsl(var(--destructive) / <alpha-value>)',
+              foreground: 'hsl(var(--destructive-foreground) / <alpha-value>)',
+            },
+            border: 'hsl(var(--border) / <alpha-value>)',
+            input: 'hsl(var(--input) / <alpha-value>)',
+            ring: 'hsl(var(--ring) / <alpha-value>)',
+          },
+          borderRadius: {
+            lg: 'var(--radius)',
+            md: 'calc(var(--radius) - 2px)',
+            sm: 'calc(var(--radius) - 4px)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 210 11.1% 3.53%;
+      --card: 0 0% 100%;
+      --card-foreground: 210 11.1% 3.53%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 210 11.1% 3.53%;
+      --primary: 0 0% 9%;
+      --primary-foreground: 0 0% 98%;
+      --secondary: 0 0% 96.1%;
+      --secondary-foreground: 0 0% 9%;
+      --muted: 0 0% 96.1%;
+      --muted-foreground: 0 0% 45.1%;
+      --accent: 0 0% 96.1%;
+      --accent-foreground: 0 0% 9%;
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 0 0% 89.8%;
+      --input: 0 0% 89.8%;
+      --ring: 0 0% 3.9%;
+      --radius: 0.5rem;
+    }
+    .dark {
+      --background: 210 11.1% 3.53%;
+      --foreground: 0 0% 98%;
+      --card: 210 11.1% 3.53%;
+      --card-foreground: 0 0% 98%;
+      --popover: 210 11.1% 3.53%;
+      --popover-foreground: 0 0% 98%;
+      --primary: 0 0% 98%;
+      --primary-foreground: 0 0% 9%;
+      --secondary: 0 0% 14.9%;
+      --secondary-foreground: 0 0% 98%;
+      --muted: 0 0% 14.9%;
+      --muted-foreground: 0 0% 63.9%;
+      --accent: 0 0% 14.9%;
+      --accent-foreground: 0 0% 98%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 0 0% 14.9%;
+      --input: 0 0% 14.9%;
+      --ring: 0 0% 83.1%;
+    }
+
+    * {
+      border-color: hsl(var(--border));
+    }
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Staggered Blur Entrance Animations */
+    .fade-blur {
+      opacity: 0;
+      filter: blur(6px);
+      transform: translateY(6px);
+      will-change: transform, opacity, filter;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-blur.hero-title {
+      filter: blur(8px);
+      transform: translateY(8px);
+    }
+    .fade-blur.in-view {
+      opacity: 1 !important;
+      filter: blur(0px) !important;
+      transform: translateY(0px) !important;
+    }
+
+    /* Magic UI Dock & Tooltip styles */
+    .dock-icon-wrapper {
+      transition: width 0.15s ease-out, height 0.15s ease-out, transform 0.15s ease-out;
+    }
+    .dock-tooltip {
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, 6px) scale(0.95);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+    .dock-item:hover .dock-tooltip {
+      opacity: 1;
+      transform: translate(-50%, -6px) scale(1);
+    }
+
+    /* Resume Card description transition */
+    .resume-card-desc {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+
+  <!-- Flash-free Theme Pre-init -->
+  <script>
+    !function(){
+      try {
+        var d = document.documentElement;
+        var c = d.classList;
+        c.remove('light', 'dark');
+        var e = localStorage.getItem('theme');
+        if ('system' === e || (!e && false)) {
+          var t = '(prefers-color-scheme: dark)', m = window.matchMedia(t);
+          if (m.media !== t || m.matches) {
+            d.style.colorScheme = 'dark';
+            c.add('dark');
+          } else {
+            d.style.colorScheme = 'light';
+            c.add('light');
+          }
+        } else if (e) {
+          c.add(e || 'dark');
+          d.style.colorScheme = e;
+        } else {
+          c.add('dark');
+          d.style.colorScheme = 'dark';
+        }
+      } catch(e){}
+    }();
+  </script>
+</head>
+
+<body class="min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6 relative">
+  <main class="flex flex-col min-h-[100dvh] space-y-10">
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+      <div class="mx-auto w-full max-w-2xl space-y-8">
+        <div class="gap-2 flex justify-between">
+          <div class="flex-col flex flex-1 space-y-1.5">
+            <div class="flex">
+              <span class="fade-blur hero-title inline-block text-3xl font-bold tracking-tighter sm:text-5xl xl:text-5xl/none" data-delay="40">
+                hi, krishna here 👋
+              </span>
+            </div>
+            <div class="fade-blur" data-delay="40">
+              <div class="max-w-[600px] md:text-sm text-muted-foreground">
+                been here for <span id="real-time-age" class="tabular-nums font-mono font-medium text-foreground"></span> years
+              </div>
+            </div>
+          </div>
+          <div class="fade-blur" data-delay="40">
+            <span class="relative flex shrink-0 overflow-hidden rounded-full size-28 border bg-card shadow-sm">
+              <img class="aspect-square h-full w-full object-cover rounded-full" alt="Krishna" src="./avatar.png" onerror="this.src='https://avatars.githubusercontent.com/u/194781553?v=4'"/>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <div class="fade-blur" data-delay="120">
+        <h2 class="text-xl font-bold">about</h2>
+      </div>
+      <div class="fade-blur" data-delay="160">
+        <div class="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert mt-2 space-y-3 leading-relaxed">
+          <p>tldr; building intelligent AI systems, local LLM tools, and high-performance applications.</p>
+          <p>I like technology. It makes a dent in the universe.</p>
+          <p>I write code agentically. A lot of it.</p>
+          <p>Passionate about Generative AI, LLM tooling, full-stack engineering, and data systems.</p>
+          <p>Right now I just build stuff!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK SECTION -->
+    <section id="work">
+      <div class="flex min-h-0 flex-col gap-y-3">
+        <div class="fade-blur" data-delay="200">
+          <h2 class="text-xl font-bold">cool places I worked at</h2>
+        </div>
+
+        <!-- Card: PGAGI -->
+        <div class="fade-blur" data-delay="240">
+          <a class="block cursor-pointer group" href="https://pgagi.in/" target="_blank" rel="noopener noreferrer">
+            <div class="rounded-lg bg-card text-card-foreground flex p-2 -mx-2 hover:bg-muted/40 transition-colors">
+              <div class="flex-none">
+                <span class="relative flex shrink-0 overflow-hidden rounded-full border size-12 m-auto bg-muted-background dark:bg-card">
+                  <img src="./pgagi.png" alt="PGAGI" class="h-full w-full object-contain p-1 rounded-full" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
+                  <span class="hidden h-full w-full items-center justify-center rounded-full bg-muted text-foreground font-semibold">P</span>
+                </span>
+              </div>
+              <div class="flex-grow ml-4 items-center flex-col">
+                <div class="flex flex-col">
+                  <div class="flex items-center justify-between gap-x-2 text-base">
+                    <h3 class="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
+                      PGAGI
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100 rotate-0">
+                        <path d="m9 18 6-6-6-6"></path>
+                      </svg>
+                    </h3>
+                    <div class="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">feb 2026 - june 2026</div>
+                  </div>
+                  <div class="font-sans text-xs text-muted-foreground mt-0.5">genai intern</div>
+                </div>
+                <div class="mt-2 text-xs sm:text-sm text-muted-foreground resume-card-desc">
+                  building production-ready generative AI systems, agentic workflows, and LLM applications.
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education">
+      <div class="flex min-h-0 flex-col gap-y-3">
+        <div class="fade-blur" data-delay="280">
+          <h2 class="text-xl font-bold">education</h2>
+        </div>
+        <div class="fade-blur" data-delay="320">
+          <a class="block cursor-pointer group" href="https://dbatu.ac.in/" target="_blank" rel="noopener noreferrer">
+            <div class="rounded-lg bg-card text-card-foreground flex p-2 -mx-2 hover:bg-muted/40 transition-colors">
+              <div class="flex-none">
+                <span class="relative flex shrink-0 overflow-hidden rounded-full border size-12 m-auto bg-muted-background dark:bg-card">
+                  <img src="./dbatu.png" alt="DBATU" class="h-full w-full object-contain p-1 rounded-full" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
+                  <span class="hidden h-full w-full items-center justify-center rounded-full bg-muted text-foreground font-semibold">D</span>
+                </span>
+              </div>
+              <div class="flex-grow ml-4 items-center flex-col">
+                <div class="flex flex-col">
+                  <div class="flex items-center justify-between gap-x-2 text-base">
+                    <h3 class="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
+                      dr. babasaheb ambedkar technological university (dbatu)
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100 rotate-0">
+                        <path d="m9 18 6-6-6-6"></path>
+                      </svg>
+                    </h3>
+                    <div class="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">2023 - 2027</div>
+                  </div>
+                  <div class="font-sans text-xs text-muted-foreground mt-0.5">b.tech in artificial intelligence (ai)</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION (with SVGL.app vector icons) -->
+    <section id="skills">
+      <div class="flex min-h-0 flex-col gap-y-3">
+        <div class="fade-blur" data-delay="370">
+          <h2 class="text-xl font-bold">skills</h2>
+        </div>
+        <div class="flex flex-wrap gap-1.5">
+
+          <!-- Python -->
+          <div class="fade-blur" data-delay="380">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5" viewBox="0 0 128 128">
+                <path fill="#3776AB" d="M63.5 1.5C36.6 1.5 38.3 13.2 38.3 13.2l.1 12.1h25.7v3.7H29.5S1.5 25.8 1.5 64.1c0 38.4 24.3 37 24.3 37h7.3v-10.2s-.4-12.1 11.9-12.1h25.4s11.5.2 11.5-11.3V52.8s1.6-11.7-11.6-11.7H47.1s-11.3-.2-11.3-11.3v-15S34.3 1.5 63.5 1.5z"/>
+                <path fill="#FFD438" d="M64.5 126.5c26.9 0 25.2-11.7 25.2-11.7l-.1-12.1H63.9V99h34.6s28 3.2 28-35.1c0-38.4-24.3-37-24.3-37h-7.3v10.2s.4 12.1-11.9 12.1H77.6s-11.5-.2-11.5 11.3v24.7s-1.6 11.7 11.6 11.7h23.2s11.3.2 11.3 11.3v15s1.5 13.3-27.7 13.3z"/>
+                <circle fill="#FFF" cx="49.8" cy="18.8" r="4.3"/>
+                <circle fill="#FFF" cx="78.2" cy="109.2" r="4.3"/>
+              </svg>
+              python
+            </div>
+          </div>
+
+          <!-- Google Gemini -->
+          <div class="fade-blur" data-delay="410">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5" viewBox="0 0 24 24" fill="none">
+                <path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z" fill="url(#gemini-icon-grad)"/>
+                <defs>
+                  <linearGradient id="gemini-icon-grad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#1BA1E3"/>
+                    <stop offset="0.5" stop-color="#5460E6"/>
+                    <stop offset="1" stop-color="#9168C0"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              gemini ai
+            </div>
+          </div>
+
+          <!-- OpenAI / LLMs -->
+          <div class="fade-blur" data-delay="440">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5 text-foreground" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 8.783a4.485 4.485 0 0 1 2.366-1.973V12.7a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 8.783zm15.82 4.945-5.817-3.357 2.02-1.168a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.695a.79.79 0 0 0-.428-.676zm3.5-3.308a4.476 4.476 0 0 1 .535 3.014l-.142-.085-4.783-2.759a.771.771 0 0 0-.78 0L10.645 14V11.67a.08.08 0 0 1 .033-.062l4.84-2.79a4.5 4.5 0 0 1 6.142 1.646zM8.513 14.73l-2.02-1.168a.071.071 0 0 1-.038-.052V7.927a4.504 4.504 0 0 1 7.37-3.454l-.141.08-4.779 2.76a.795.795 0 0 0-.392.681zm1.25-3.23L12 10.218l2.237 1.282v2.564L12 15.346l-2.237-1.282z"/>
+              </svg>
+              llms &amp; genai
+            </div>
+          </div>
+
+          <!-- TypeScript -->
+          <div class="fade-blur" data-delay="470">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5" viewBox="0 0 128 128">
+                <rect width="128" height="128" rx="16" fill="#3178C6"/>
+                <path fill="#FFF" d="M72 40h-32v12h10v36h12V52h10V40zm14 26c3.4 0 6.6 1 9.5 2.8V56.3c-2.9-1.2-6.2-1.9-9.8-1.9-10.6 0-16.7 6.4-16.7 15.6 0 16.5 22.8 12.9 22.8 20.8 0 3.7-3.4 5.2-7.5 5.2-4.4 0-8.8-1.7-12-4.5v12.7c3.4 1.7 7.7 2.6 12.3 2.6 11.8 0 18.2-6.5 18.2-16.1 0-17.6-22.9-13.4-22.9-20.9 0-3.3 2.7-4.8 6.1-4.8z"/>
+              </svg>
+              typescript
+            </div>
+          </div>
+
+          <!-- JavaScript -->
+          <div class="fade-blur" data-delay="500">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5" viewBox="0 0 128 128">
+                <rect width="128" height="128" rx="16" fill="#F7DF1E"/>
+                <path d="M74.9 99.4c3.4 5.9 7.8 10.3 15.8 10.3 6.6 0 10.8-3.3 10.8-7.9 0-5.5-4.4-7.5-11.8-10.7l-4-1.7c-11.7-5-19.4-11.3-19.4-24.3 0-12.1 9.3-21.3 23.8-21.3 10.3 0 17.7 3.6 22.9 12.8l-10.5 6.7c-2.3-4.1-5.3-6.1-10.5-6.1-4.8 0-8 3.1-8 7 0 4.8 3.1 6.8 10.3 9.9l4 1.7c13.8 5.9 21.3 12 21.3 25.5 0 14.6-11.4 22.9-26.6 22.9-14.8 0-24.1-7.2-28.7-16.8l10.6-8.3zm-48.4.8c2.4 4.2 4.6 7.7 9.8 7.7 5.1 0 8.3-2 8.3-9.9V44.8h13.2v53.2c0 14.9-8.8 21.5-21.6 21.5-11.6 0-18.4-6-21.8-15.1l12.1-4.2z"/>
+              </svg>
+              javascript
+            </div>
+          </div>
+
+          <!-- React -->
+          <div class="fade-blur" data-delay="530">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5 text-[#00D8FF]" viewBox="-11.5 -10.232 23 20.463" fill="none" stroke="currentColor" stroke-width="1">
+                <circle cx="0" cy="0" r="2.05" fill="currentColor"/>
+                <g>
+                  <ellipse rx="11" ry="4.2"/>
+                  <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+                  <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+                </g>
+              </svg>
+              react
+            </div>
+          </div>
+
+          <!-- Next.js -->
+          <div class="fade-blur" data-delay="560">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5" viewBox="0 0 180 180" fill="none">
+                <mask id="next-svg-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="180" height="180" style="mask-type:alpha">
+                  <circle cx="90" cy="90" r="90" fill="#000"/>
+                </mask>
+                <g mask="url(#next-svg-mask)">
+                  <circle cx="90" cy="90" r="90" fill="currentColor"/>
+                  <path d="M149.508 157.438L69.1478 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.137 149.508 157.438Z" fill="#FFF"/>
+                  <path d="M115.898 54H127.998V126H115.898V54Z" fill="#FFF"/>
+                </g>
+              </svg>
+              next.js
+            </div>
+          </div>
+
+          <!-- Tailwind CSS -->
+          <div class="fade-blur" data-delay="590">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5" viewBox="0 0 54 33" fill="#38BDF8">
+                <path d="M13.5 0C6.075 0 1.35 3.713 0 11.137 2.7 7.425 5.738 5.738 9.112 6.075c1.928.193 3.306 1.593 4.832 3.142C16.43 11.738 19.345 14.7 27 14.7c7.425 0 12.15-3.712 13.5-11.137-2.7 3.712-5.738 5.4-9.113 5.062-1.927-.192-3.305-1.592-4.831-3.142C24.07 3.037 21.155 0 13.5 0zm13.5 17.55c-7.425 0-12.15 3.713-13.5 11.138 2.7-3.713 5.738-5.4 9.112-5.063 1.928.193 3.306 1.593 4.832 3.143 2.486 2.52 5.402 5.482 13.056 5.482 7.425 0 12.15-3.712 13.5-11.137-2.7 3.712-5.738 5.4-9.113 5.062-1.927-.193-3.305-1.593-4.831-3.142-2.486-2.52-5.402-5.483-13.056-5.483z"/>
+              </svg>
+              tailwind css
+            </div>
+          </div>
+
+          <!-- Node.js -->
+          <div class="fade-blur" data-delay="620">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5" viewBox="0 0 128 128">
+                <path fill="#5FA04E" d="M64 1.5L9.6 32.9v62.2L64 126.5l54.4-31.4V32.9L64 1.5z"/>
+                <path fill="#FFF" d="M64 25.8l38.2 22.1v44.2L64 114.2l-38.2-22.1V47.9L64 25.8z"/>
+                <path fill="#5FA04E" d="M64 42.6L44.8 53.7v22.2L64 87l19.2-11.1V53.7L64 42.6z"/>
+              </svg>
+              node.js
+            </div>
+          </div>
+
+          <!-- PostgreSQL -->
+          <div class="fade-blur" data-delay="650">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5" viewBox="0 0 128 128">
+                <path fill="#336791" d="M64 4.5C31.1 4.5 4.5 31.1 4.5 64s26.6 59.5 59.5 59.5 59.5-26.6 59.5-59.5S96.9 4.5 64 4.5zm27.4 87.2c-5.8 4.2-13.7 6.4-23.7 6.4-17.7 0-28.7-8.2-28.7-21.5 0-14.7 12.8-21.7 32-21.7 3.6 0 6.9.3 9.8.8v-4.8c0-5.8-3.9-9.1-11.7-9.1-6.1 0-12.7 2.2-18.1 5.9l-4.5-8.4c6.9-4.8 15.6-7.5 24.3-7.5 15.8 0 23.4 7.9 23.4 20.9v27.7c0 4.1.8 7.3 2.5 9.7l-5.3 2.1zm-10.7-22.3c-2.6-.5-5.6-.8-8.9-.8-10.9 0-18.1 3.5-18.1 11.2 0 6.6 5 10.6 13.9 10.6 6.3 0 11.1-2 13.1-4.7v-16.3z"/>
+              </svg>
+              postgres
+            </div>
+          </div>
+
+          <!-- Docker -->
+          <div class="fade-blur" data-delay="680">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5" viewBox="0 0 128 128">
+                <path fill="#2496ED" d="M125.7 61.2c-2.4-.7-9.6-1.5-14.2 2.2-3.7-4.4-9.3-7.3-15.7-7.6l-1.9-.1-.8 1.8c-2.9 6.7-1.6 13.9 3.5 19.3-5.2 2.7-12.8 3.5-22.1 3.5H4.2c-2.2 7.7-.3 20.8 7.9 28.5 11.8 11.1 31.8 15.1 55.4 15.1 41.5 0 60.5-21.4 60.5-44.5 0-.7 0-1.4-.1-2.1 3.8-3.4 6.7-7.9 7.8-12.6l.8-3.4-3.8-.1zM28.4 44.9H16.1v12.3h12.3V44.9zm16.4 0H32.5v12.3h12.3V44.9zm16.4 0H48.9v12.3h12.3V44.9zm16.4 0H65.3v12.3h12.3V44.9zm-32.8-16H32.5v12.3h12.3V28.9zm16.4 0H48.9v12.3h12.3V28.9zm16.4 0H65.3v12.3h12.3V28.9zm0-16H65.3v12.3h12.3V12.9z"/>
+              </svg>
+              docker
+            </div>
+          </div>
+
+          <!-- Git -->
+          <div class="fade-blur" data-delay="710">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5" viewBox="0 0 128 128">
+                <path fill="#F05032" d="M124.7 57.3L70.7 3.3c-4.4-4.4-11.5-4.4-15.9 0L42.5 15.6l20.1 20.1c4.7-1.6 10.2-.5 13.9 3.2 3.7 3.7 4.8 9.2 3.2 13.9l19.4 19.4c4.7-1.6 10.2-.5 13.9 3.2 5.3 5.3 5.3 13.8 0 19.1s-13.8 5.3-19.1 0c-4-4-4.9-9.9-2.8-14.8L72.2 60.8v31.4c1.4.9 2.7 2.1 3.6 3.6 5.3 5.3 5.3 13.8 0 19.1s-13.8 5.3-19.1 0c-5.3-5.3-5.3-13.8 0-19.1 1.4-1.4 3-2.4 4.8-3.1V58.6c-1.8-.7-3.4-1.7-4.8-3.1-3.9-3.9-4.8-9.7-2.9-14.6L34.1 20.9 3.3 51.7c-4.4 4.4-4.4 11.5 0 15.9l54 54c4.4 4.4 11.5 4.4 15.9 0l51.5-51.5c4.4-4.4 4.4-11.5 0-15.9z"/>
+              </svg>
+              git
+            </div>
+          </div>
+
+          <!-- Jupyter -->
+          <div class="fade-blur" data-delay="740">
+            <div class="inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold transition-colors hover:bg-muted/80 shadow-sm">
+              <svg class="size-3.5 mr-1.5" viewBox="0 0 448 512" fill="#F37626">
+                <path d="M224.1 96c-53.7 0-99.7 30.5-122.9 75 16.5-10.4 35.8-16.5 56.6-16.5 58.7 0 106.3 47.6 106.3 106.3s-47.6 106.3-106.3 106.3c-20.8 0-40.1-6.1-56.6-16.5 23.2 44.5 69.2 75 122.9 75 76.8 0 139-62.2 139-139S300.9 96 224.1 96zM157.8 288.7c-16.5 0-29.9-13.4-29.9-29.9s13.4-29.9 29.9-29.9 29.9 13.4 29.9 29.9-13.4 29.9-29.9 29.9z"/>
+              </svg>
+              jupyter
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <div class="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
+        <div class="fade-blur" data-delay="650">
+          <div class="space-y-3">
+            <div class="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm font-medium">Get in Touch</div>
+            <p class="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              say hello on <a class="text-blue-500 hover:underline font-medium" href="https://github.com/bkrsna" target="_blank" rel="noopener noreferrer">GitHub (@bkrsna)</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MAGIC UI BOTTOM FLOATING DOCK -->
+  <div class="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-4 flex origin-bottom h-full max-h-14">
+    <!-- Mask overlay -->
+    <div class="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background pointer-events-none"></div>
+
+    <!-- Dock Pill -->
+    <nav id="magic-dock" class="w-max p-2 rounded-full border z-50 pointer-events-auto relative mx-auto flex min-h-full h-full items-center px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
+      
+      <!-- Home Icon -->
+      <div class="dock-item relative flex aspect-square cursor-pointer items-center justify-center rounded-full dock-icon-wrapper" style="width:40px; height:40px;">
+        <span class="dock-tooltip absolute -top-8 left-1/2 rounded-md bg-primary px-2 py-0.5 text-xs text-primary-foreground shadow-md whitespace-nowrap">Home</span>
+        <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground rounded-full size-10" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home size-4">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Separator -->
+      <div class="shrink-0 bg-border w-[1px] h-6 mx-1 my-auto"></div>
+
+      <!-- GitHub Icon -->
+      <div class="dock-item relative flex aspect-square cursor-pointer items-center justify-center rounded-full dock-icon-wrapper" style="width:40px; height:40px;">
+        <span class="dock-tooltip absolute -top-8 left-1/2 rounded-md bg-primary px-2 py-0.5 text-xs text-primary-foreground shadow-md whitespace-nowrap">GitHub</span>
+        <a class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground rounded-full size-10" href="https://github.com/bkrsna" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 438.549 438.549" class="size-4" fill="currentColor">
+            <path d="M409.132 114.573c-19.608-33.596-46.205-60.194-79.798-79.8-33.598-19.607-70.277-29.408-110.063-29.408-39.781 0-76.472 9.804-110.063 29.408-33.596 19.605-60.192 46.204-79.8 79.8C9.803 148.168 0 184.854 0 224.63c0 47.78 13.94 90.745 41.827 128.906 27.884 38.164 63.906 64.572 108.063 79.227 5.14.954 8.945.283 11.419-1.996 2.475-2.282 3.711-5.14 3.711-8.562 0-.571-.049-5.708-.144-15.417a2549.81 2549.81 0 01-.144-25.406l-6.567 1.136c-4.187.767-9.469 1.092-15.846 1-6.374-.089-12.991-.757-19.842-1.999-6.854-1.231-13.229-4.086-19.13-8.559-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-.951-2.568-2.098-3.711-3.429-1.142-1.331-1.997-2.663-2.568-3.997-.572-1.335-.098-2.43 1.427-3.289 1.525-.859 4.281-1.276 8.28-1.276l5.708.853c3.807.763 8.516 3.042 14.133 6.851 5.614 3.806 10.229 8.754 13.846 14.842 4.38 7.806 9.657 13.754 15.846 17.847 6.184 4.093 12.419 6.136 18.699 6.136 6.28 0 11.704-.476 16.274-1.423 4.565-.952 8.848-2.383 12.847-4.285 1.713-12.758 6.377-22.559 13.988-29.41-10.848-1.14-20.601-2.857-29.264-5.14-8.658-2.286-17.605-5.996-26.835-11.14-9.235-5.137-16.896-11.516-22.985-19.126-6.09-7.614-11.088-17.61-14.987-29.979-3.901-12.374-5.852-26.648-5.852-42.826 0-23.035 7.52-42.637 22.557-58.817-7.044-17.318-6.379-36.732 1.997-58.24 5.52-1.715 13.706-.428 24.554 3.853 10.85 4.283 18.794 7.952 23.84 10.994 5.046 3.041 9.089 5.618 12.135 7.708 17.705-4.947 35.976-7.421 54.818-7.421s37.117 2.474 54.823 7.421l10.849-6.849c7.419-4.57 16.18-8.758 26.262-12.565 10.088-3.805 17.802-4.853 23.134-3.138 8.562 21.509 9.325 40.922 2.279 58.24 15.036 16.18 22.559 35.787 22.559 58.817 0 16.178-1.958 30.497-5.853 42.966-3.9 12.471-8.941 22.457-15.125 29.979-6.191 7.521-13.901 13.85-23.131 18.986-9.232 5.14-18.182 8.85-26.84 11.136-8.662 2.286-18.415 4.004-29.263 5.146 9.894 8.562 14.842 22.077 14.842 40.539v60.237c0 3.422 1.19 6.279 3.572 8.562 2.379 2.279 6.136 2.95 11.276 1.995 44.163-14.653 80.185-41.062 108.068-79.226 27.88-38.161 41.825-81.126 41.825-128.906-.01-39.771-9.818-76.454-29.414-110.049z"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Separator -->
+      <div class="shrink-0 bg-border w-[1px] h-6 mx-1 my-auto"></div>
+
+      <!-- Theme Toggle Icon -->
+      <div class="dock-item relative flex aspect-square cursor-pointer items-center justify-center rounded-full dock-icon-wrapper" style="width:40px; height:40px;">
+        <span class="dock-tooltip absolute -top-8 left-1/2 rounded-md bg-primary px-2 py-0.5 text-xs text-primary-foreground shadow-md whitespace-nowrap">Theme</span>
+        <button id="theme-toggle" type="button" aria-label="Toggle Theme" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground rounded-full size-10">
+          <!-- Sun icon for light mode -->
+          <svg id="theme-sun" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:hidden dark:text-neutral-200">
+            <path d="M7.5 0C7.77614 0 8 0.223858 8 0.5V2.5C8 2.77614 7.77614 3 7.5 3C7.22386 3 7 2.77614 7 2.5V0.5C7 0.223858 7.22386 0 7.5 0ZM2.1967 2.1967C2.39196 2.00144 2.70854 2.00144 2.90381 2.1967L4.31802 3.61091C4.51328 3.80617 4.51328 4.12276 4.31802 4.31802C4.12276 4.51328 3.80617 4.51328 3.61091 4.31802L2.1967 2.90381C2.00144 2.70854 2.00144 2.39196 2.1967 2.1967ZM0.5 7C0.223858 7 0 7.22386 0 7.5C0 7.77614 0.223858 8 0.5 8H2.5C2.77614 8 3 7.77614 3 7.5C3 7.22386 2.77614 7 2.5 7H0.5ZM2.1967 12.8033C2.00144 12.608 2.00144 12.2915 2.1967 12.0962L3.61091 10.682C3.80617 10.4867 4.12276 10.4867 4.31802 10.682C4.51328 10.8772 4.51328 11.1938 4.31802 11.3891L2.90381 12.8033C2.70854 12.9986 2.39196 12.9986 2.1967 12.8033ZM12.5 7C12.2239 7 12 7.22386 12 7.5C12 7.77614 12 7.22386 12 7.5V14.5C7 14.7761 7.22386 15 7.5 15C7.77614 15 8 14.7761 8 14.5V12.5ZM10.682 4.31802C10.4867 4.12276 10.4867 3.80617 10.682 3.61091L12.0962 2.1967C12.2915 2.00144 12.608 2.00144 12.8033 2.1967C12.9986 2.39196 12.9986 2.70854 12.8033 2.90381L11.3891 4.31802C11.1938 4.51328 10.8772 4.51328 10.682 4.31802ZM8 12.5C8 12.2239 7.77614 12 7.5 12C7.22386 12 7 12.2239 7 12.5V14.5C7 14.7761 7.22386 15 7.5 15C7.77614 15 8 14.7761 8 14.5V12.5ZM10.682 10.682C10.8772 10.4867 11.1938 10.4867 11.3891 10.682L12.8033 12.0962C12.9986 12.2915 12.9986 12.608 12.8033 12.8033C12.608 12.9986 12.2915 12.9986 12.0962 12.8033L10.682 11.3891C10.4867 11.1938 10.4867 10.8772 10.682 10.682ZM5.5 7.5C5.5 6.39543 6.39543 5.5 7.5 5.5C8.60457 5.5 9.5 6.39543 9.5 7.5C9.5 8.60457 8.60457 9.5 7.5 9.5C6.39543 9.5 5.5 8.60457 5.5 7.5ZM7.5 4.5C5.84315 4.5 4.5 5.84315 4.5 7.5C4.5 9.15685 5.84315 10.5 7.5 10.5C9.15685 10.5 10.5 9.15685 10.5 7.5C10.5 5.84315 9.15685 4.5 7.5 4.5Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+          <!-- Moon icon for dark mode -->
+          <svg id="theme-moon" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden h-[1.2rem] w-[1.2rem] text-neutral-800 dark:block dark:text-neutral-200">
+            <path d="M2.89998 0.499976C2.89998 0.279062 2.72089 0.0999756 2.49998 0.0999756C2.27906 0.0999756 2.09998 0.279062 2.09998 0.499976V1.09998H1.49998C1.27906 1.09998 1.09998 1.27906 1.09998 1.49998C1.09998 1.72089 1.27906 1.89998 1.49998 1.89998H2.09998V2.49998C2.09998 2.72089 2.27906 2.89998 2.49998 2.89998C2.72089 2.89998 2.89998 2.72089 2.89998 2.49998V1.89998H3.49998C3.72089 1.89998 3.89998 1.72089 3.89998 1.49998C3.89998 1.27906 3.72089 1.09998 3.49998 1.09998H2.89998V0.499976ZM5.89998 3.49998C5.89998 3.27906 5.72089 3.09998 5.49998 3.09998C5.27906 3.09998 5.09998 3.27906 5.09998 3.49998V4.09998H4.49998C4.27906 4.09998 4.09998 4.27906 4.09998 4.49998C4.09998 4.72089 4.27906 4.89998 4.49998 4.89998H5.09998V5.49998C5.09998 5.72089 5.27906 5.89998 5.49998 5.89998C5.72089 5.89998 5.89998 5.72089 5.89998 5.49998V4.89998H6.49998C6.72089 4.89998 6.89998 4.72089 6.89998 4.49998C6.89998 4.27906 6.72089 4.09998 6.49998 4.09998H5.89998V3.49998ZM1.89998 6.49998C1.89998 6.27906 1.72089 6.09998 1.49998 6.09998C1.27906 6.09998 1.09998 6.27906 1.09998 6.49998V7.09998H0.499976C0.279062 7.09998 0.0999756 7.27906 0.0999756 7.49998C0.0999756 7.72089 0.279062 7.89998 0.499976 7.89998H1.09998V8.49998C1.09998 8.72089 1.27906 8.89997 1.49998 8.89997C1.72089 8.89997 1.89998 8.72089 1.89998 8.49998V7.89998H2.49998C2.72089 7.89998 2.89998 7.72089 2.89998 7.49998C2.89998 7.27906 2.72089 7.09998 2.49998 7.09998H1.89998V6.49998ZM8.54406 0.98184L8.24618 0.941586C8.03275 0.917676 7.90692 1.1655 8.02936 1.34194C8.17013 1.54479 8.29981 1.75592 8.41754 1.97445C8.91878 2.90485 9.20322 3.96932 9.20322 5.10022C9.20322 8.37201 6.82247 11.0878 3.69887 11.6097C3.45736 11.65 3.20988 11.6772 2.96008 11.6906C2.74563 11.702 2.62729 11.9535 2.77721 12.1072C2.84551 12.1773 2.91535 12.2458 2.98667 12.3128L3.05883 12.3795L3.31883 12.6045L3.50684 12.7532L3.62796 12.8433L3.81491 12.9742L3.99079 13.089C4.11175 13.1651 4.23536 13.2375 4.36157 13.3059L4.62496 13.4412L4.88553 13.5607L5.18837 13.6828L5.43169 13.7686C5.56564 13.8128 5.70149 13.8529 5.83857 13.8885C5.94262 13.9155 6.04767 13.9401 6.15405 13.9622C6.27993 13.9883 6.40713 14.0109 6.53544 14.0298L6.85241 14.0685L7.11934 14.0892C7.24637 14.0965 7.37436 14.1002 7.50322 14.1002C11.1483 14.1002 14.1032 11.1453 14.1032 7.50023C14.1032 7.25044 14.0893 7.00389 14.0623 6.76131L14.0255 6.48407C13.991 6.26083 13.9453 6.04129 13.8891 5.82642C13.8213 5.56709 13.7382 5.31398 13.6409 5.06881L13.5279 4.80132L13.4507 4.63542L13.3766 4.48666C13.2178 4.17773 13.0353 3.88295 12.8312 3.60423L12.6782 3.40352L12.4793 3.16432L12.3157 2.98361L12.1961 2.85951L12.0355 2.70246L11.8134 2.50184L11.4925 2.24191L11.2483 2.06498L10.9562 1.87446L10.6346 1.68894L10.3073 1.52378L10.1938 1.47176L9.95488 1.3706L9.67791 1.2669L9.42566 1.1846L9.10075 1.09489L8.83599 1.03486L8.54406 0.98184ZM10.4032 5.30023C10.4032 4.27588 10.2002 3.29829 9.83244 2.40604C11.7623 3.28995 13.1032 5.23862 13.1032 7.50023C13.1032 10.593 10.596 13.1002 7.50322 13.1002C6.63646 13.1002 5.81597 12.9036 5.08355 12.5522C6.5419 12.0941 7.81081 11.2082 8.74322 10.0416C8.87963 10.2284 9.10028 10.3497 9.34928 10.3497C9.76349 10.3497 10.0993 10.0139 10.0993 9.59971C10.0993 9.24256 9.84965 8.94373 9.51535 8.86816C9.57741 8.75165 9.63653 8.63334 9.6926 8.51332C9.88358 8.63163 10.1088 8.69993 10.35 8.69993C11.0403 8.69993 11.6 8.14028 11.6 7.44993C11.6 6.75976 11.0406 6.20024 10.3505 6.19993C10.3853 5.90487 10.4032 5.60464 10.4032 5.30023Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+
+        </nav>
+      </div>
+
+  <!-- RealTimeAge & Interactivity Scripts -->
+  <script>
+    // 1. Staggered Blur-in Animations on Page Load
+    document.addEventListener('DOMContentLoaded', () => {
+      const elements = document.querySelectorAll('.fade-blur');
+      elements.forEach((el) => {
+        const delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+        setTimeout(() => {
+          el.classList.add('in-view');
+        }, delay);
+      });
+    });
+
+    // 2. Real-time Age Counter Ticker (Birthdate: 16 June 2004)
+    const birthDate = new Date('2004-06-16T00:00:00.000Z');
+    const ageElement = document.getElementById('real-time-age');
+    
+    function tickAge() {
+      const now = new Date();
+      const diffMs = now.getTime() - birthDate.getTime();
+      const ageInYears = diffMs / (1000 * 60 * 60 * 24 * 365.2425);
+      if (ageElement) {
+        ageElement.textContent = ageInYears.toFixed(8);
+      }
+      requestAnimationFrame(tickAge);
+    }
+    requestAnimationFrame(tickAge);
+
+    // 3. Theme Toggle Functionality
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const htmlEl = document.documentElement;
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        htmlEl.classList.add('dark');
+        htmlEl.classList.remove('light');
+        htmlEl.style.colorScheme = 'dark';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        htmlEl.classList.remove('dark');
+        htmlEl.classList.add('light');
+        htmlEl.style.colorScheme = 'light';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const isDark = htmlEl.classList.contains('dark');
+        applyTheme(isDark ? 'light' : 'dark');
+      });
+    }
+
+    // 4. Magic UI Dock Magnification Physics
+    const dock = document.getElementById('magic-dock');
+    const dockIcons = document.querySelectorAll('.dock-icon-wrapper');
+    const maxDistance = 140;
+    const baseSize = 40;
+    const maxSize = 52;
+
+    if (dock) {
+      dock.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX;
+        dockIcons.forEach((icon) => {
+          const rect = icon.getBoundingClientRect();
+          const iconCenterX = rect.left + rect.width / 2;
+          const distance = Math.abs(mouseX - iconCenterX);
+
+          if (distance < maxDistance) {
+            const scale = 1 + (1 - distance / maxDistance) * 0.28;
+            const size = Math.min(maxSize, baseSize * scale);
+            icon.style.width = `${size}px`;
+            icon.style.height = `${size}px`;
+          } else {
+            icon.style.width = `${baseSize}px`;
+            icon.style.height = `${baseSize}px`;
+          }
+        });
+      });
+
+      dock.addEventListener('mouseleave', () => {
+        dockIcons.forEach((icon) => {
+          icon.style.width = `${baseSize}px`;
+          icon.style.height = `${baseSize}px`;
+        });
+      });
+    }
+  </script>
 </body>
+</html>
